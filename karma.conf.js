@@ -1,23 +1,31 @@
-var webpackConfig = require("./webpack.config.js");
-
+var webpackconfig = require("./webpack.config.js")
 module.exports = function(config){
-    config.set[{
-        browsers: ['Chrome'],
+    config.set({
+        browsers: ['PhantomJS'],
+        hostname: 'localhost',
+        port: 3001, //process.env.PORT,
+        runnerPort: 0,
         singleRun: true,
         frameworks: ['mocha'],
-        files: ['app/tests/**/*.test.jsx'],
+        files: [
+          'node_modules/jquery/dist/jquery.js',
+          'app/tests/**/*.test.jsx'
+        ],
         preprocessors: {
-            'app/tests/**/*.test.jsx': ['webpack', 'sourcemap']
-        }, 
+            'app/tests/**/*.test.jsx': ['webpack', 'sourcemap', 'jQuery'] //load the app and show up the source code not bundle.js
+        },
         reporters: ['mocha'],
         client: {
-            mocha: {
-                timeout: '5000'
-            }
+            timeout: '5000',
         },
-        webpack: webpackConfig,
+        webpack: webpackconfig,
         webpackServer: {
             noInfo: true
-        }
-    }];
-};
+        },
+        phantomjsLauncher: {
+      // Have phantomjs exit if a ResourceError is encountered (useful if karma exits without killing phantom)
+        exitOnResourceError: true
+    },
+
+    })
+}
