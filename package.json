@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "karma start",
+    "test": "karma start --browsers PhantomJS",
     "start": "node server.js"
   },
   "author": "",
@@ -12,7 +12,6 @@
   "dependencies": {
     "axios": "^0.9.1",
     "express": "^4.14.0",
-    "phantomjs": "^2.1.7",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.5.1"
@@ -31,10 +30,12 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.0.4",
+    "karma-phantomjs-launcher": "^1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
+    "phantomjs": "^2.1.7",
     "react-addons-test-utils": "^15.2.0",
     "sass-loader": "^4.0.0",
     "script-loader": "^0.7.0",

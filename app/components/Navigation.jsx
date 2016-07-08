@@ -1,6 +1,6 @@
 //stateless component
 var React = require("react");
-var {Link, indexLink} = require("react-router");
+var {Link, IndexLink} = require("react-router");
 
 var Navigation = () => {
     return(

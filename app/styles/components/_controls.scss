@@ -1,0 +1,13 @@
+.controls {
+    display: flex;
+    justify-content: center;
+    // same as .controls .button
+    //only button classes inside .controls class
+    .button{
+        padding: .75rem 3rem;
+    }
+    // same as .controls .button:first-child
+    .button:first-child {
+        margin-right: 1.5rem;
+    }
+}

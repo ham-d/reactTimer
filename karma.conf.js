@@ -1,24 +1,28 @@
-var webpackconfig = require("./webpack.config.js")
+var webpackConfig = require("./webpack.config.js");
+
 module.exports = function(config){
     config.set({
         browsers: ['PhantomJS'],
-        hostname: 'localhost',
-        port: 3001, //process.env.PORT,
+        hostname: process.env.IP,
+        port: process.env.PORT,
         runnerPort: 0,
         singleRun: true,
         frameworks: ['mocha'],
         files: [
-          'node_modules/jquery/dist/jquery.js',
+          'node_modules/jquery/dist/jquery.min.js',
+          'node_modules/foundation-sites/dist/foundation.min.js',
           'app/tests/**/*.test.jsx'
         ],
         preprocessors: {
-            'app/tests/**/*.test.jsx': ['webpack', 'sourcemap', 'jQuery'] //load the app and show up the source code not bundle.js
+            'app/tests/**/*.test.jsx': ['webpack', 'sourcemap'] //load the app and show up the source code not bundle.js
         },
         reporters: ['mocha'],
         client: {
-            timeout: '5000',
+            mocha: {
+                timeout: '5000'
+            }
         },
-        webpack: webpackconfig,
+        webpack: webpackConfig,
         webpackServer: {
             noInfo: true
         },
